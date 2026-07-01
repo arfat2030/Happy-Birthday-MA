@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANAR MATRIX // فك التشفير الكوني 🔐</title>
+    <title>MANAR BIRTHDAY MATRIX // فك التشفير الكوني 🔐</title>
     <!-- الروابط الأساسية للمكتبات الحديثة -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <style>
@@ -15,7 +14,7 @@
         
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #03020a; color: #00ffcc;
+            background-color: #020106; color: #00ffcc;
             font-family: 'Cairo', sans-serif; overflow: hidden;
             user-select: none; -webkit-user-select: none;
         }
@@ -33,7 +32,7 @@
         .neon-border {
             border: 1px solid rgba(255, 0, 85, 0.4);
             box-shadow: 0 0 25px rgba(255, 0, 85, 0.25), inset 0 0 20px rgba(255, 0, 85, 0.15);
-            background: rgba(4, 2, 12, 0.85);
+            background: rgba(4, 2, 12, 0.88);
             backdrop-filter: blur(15px);
             transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
         }
@@ -68,15 +67,36 @@
             80% { transform: translate(2px, -2px) }
             100% { transform: translate(0) }
         }
+
+        /* شريط الهاكر العلوي المتدفق */
+        .ticker-wrap {
+            position: absolute; top: 0; left: 0; width: 100%; background: rgba(255, 0, 85, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 85, 0.3); padding: 4px 0; z-index: 40; overflow: hidden;
+        }
+        .ticker {
+            display: inline-block; white-space: nowrap; padding-left: 100%;
+            animation: ticker 25s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- موسيقى الخلفية المحفزة للتجربة -->
+    <!-- موسيقى الخلفية الهيدروليكية الغامضة والذكية -->
     <audio id="cyber-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
 
-    <!-- كانفاس النجوم والشبكة الجزيئية التفاعلية -->
+    <!-- كانفاس النجوم والشبكة الجزيئية التفاعلية مع انفجارات القلوب النيونية -->
     <canvas id="cyber-canvas"></canvas>
+
+    <!-- شريط الأنباء السيبراني المتحرك الفاخر للمفرقعات والتحذيرات اللطيفة -->
+    <div class="ticker-wrap opacity-0 transition-opacity duration-1000" id="global-ticker">
+        <div class="ticker cyber-font text-xs text-pink-400 font-bold">
+            [SYSTEM_NOTICE: INITIATING BIRTHDAY PROTOCOL 17.0] ••• [ALERT: OVERWHELMING BEAUTY AND PURITY DETECTED] ••• [STATUS: MANAR'S SMILE IS CAUSING A TOTAL HEART CORE MELTDOWN] ••• [DATABASE: ALL CONSTELLATIONS ALIGNED FOR JULY 12, 2009] ••• [SECURITY: DEVOTION FIREWALL IS 100% IMPENETRABLE]
+        </div>
+    </div>
 
     <!-- ================= المرحلة 1: بوابة العبور والأمان البشري ================= -->
     <div id="panel1" class="panel active">
@@ -86,14 +106,14 @@
             <p class="text-xs text-cyan-400 mb-6">الرجاء إدخال رمز تعريف الكيان الملكي المصرح له بالدخول</p>
             
             <div class="mb-6 relative">
-                <input type="text" id="secret-key" autocomplete="off" placeholder="اكتبي اسمكِ هنا بالإنجليزية أو العربية..." class="w-full bg-black/70 border border-cyan-500/40 rounded-xl py-4 px-4 text-center text-white font-bold tracking-wider focus:outline-none focus:border-pink-500 transition duration-300 shadow-[0_0_15px_rgba(0,255,204,0.1)]">
+                <input type="text" id="secret-key" autocomplete="off" placeholder="اكتبي اسمكِ هنا ( مثلاً: manar أو منار )..." class="w-full bg-black/70 border border-cyan-500/40 rounded-xl py-4 px-4 text-center text-white font-bold tracking-wider focus:outline-none focus:border-pink-500 transition duration-300 shadow-[0_0_15px_rgba(0,255,204,0.1)]">
                 
-                <!-- رسالة الرفض المخصصة الفاخرة -->
+                <!-- رسالة الرفض المخصصة الفاخرة المحدثة -->
                 <div id="error-msg" class="hidden mt-3 text-sm text-rose-500 font-bold bg-rose-950/40 border border-rose-500/30 py-2 px-3 rounded-lg glitch-error"></div>
             </div>
 
             <button onclick="verifyKey()" class="w-full py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 rounded-xl font-black text-white tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(236,72,153,0.5)] transition transform duration-200 active:scale-95">
-                🔓 كسر شفرة المصفوفة الكونية
+                🔓 كسر شفرة مصفوفة عيد الميلاد
             </button>
         </div>
     </div>
@@ -101,7 +121,7 @@
     <!-- ================= المرحلة 2: تجميع جزيئات البيانات والتحميل الخارق ================= -->
     <div id="panel2" class="panel">
         <div class="text-center z-20 font-mono scale-110">
-            <div class="text-pink-500 text-sm mb-4 tracking-widest cyber-font animate-bounce">🧬 COMPILING RECONSTRUCTION PROTOCAL...</div>
+            <div class="text-pink-500 text-sm mb-4 tracking-widest cyber-font animate-bounce">🧬 COMPILING CELEBRATION DATA NODES...</div>
             <div id="boot-logs" class="text-right text-[11px] text-cyan-400 space-y-1 mb-6 max-w-sm h-36 overflow-hidden px-6 font-mono opacity-80 border-r-2 border-cyan-500/30"></div>
             <div class="w-72 bg-black/80 h-2 rounded-full overflow-hidden mx-auto border border-cyan-500/40 p-[2px]">
                 <div id="progress-bar" class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 h-full w-0 rounded-full shadow-[0_0_10px_#00ffcc]"></div>
@@ -109,22 +129,22 @@
         </div>
     </div>
 
-    <!-- ================= المرحلة 3: القيادة المركزية الفاخرة والأبعاد الثلاثية ================= -->
+    <!-- ================= المرحلة 3: القيادة المركزية الفاخرة والرسائل المؤقتة ================= -->
     <div id="panel3" class="panel">
-        <!-- شاشة الرسائل الهولوغرافية المنبثقة -->
-        <div id="alert-banner" class="absolute top-6 left-4 right-4 mx-auto max-w-2xl neon-border p-6 text-center transform scale-0 opacity-0 transition-all duration-500 z-50 rounded-2xl bg-black/90">
-            <span class="absolute top-2 right-3 text-[9px] cyber-font text-cyan-400 tracking-widest">📡 QUANTUM_DECRYPTED_DATA //</span>
-            <p id="alert-text" class="text-lg md:text-xl font-black text-white leading-relaxed text-cyan-100"></p>
+        <!-- شاشة الرسائل الهولوغرافية المنبثقة الذكية (تختفي بعد 10 ثوانٍ) -->
+        <div id="alert-banner" class="absolute top-16 left-4 right-4 mx-auto max-w-2xl neon-border p-6 text-center transform scale-0 opacity-0 transition-all duration-500 z-50 rounded-2xl bg-black/95">
+            <span class="absolute top-2 right-3 text-[9px] cyber-font text-pink-500 tracking-widest animate-pulse">📡 QUANTUM_DECRYPTED_MSG // تختفي تلقائياً خلال 10 ثوانٍ</span>
+            <p id="alert-text" class="text-base md:text-lg font-bold text-white leading-relaxed text-cyan-100 pt-2"></p>
         </div>
 
-        <div class="w-full max-w-4xl px-4 grid grid-cols-1 md:grid-cols-3 gap-6 z-20 mt-20 md:mt-28 perspective-1000">
+        <div class="w-full max-w-4xl px-4 grid grid-cols-1 md:grid-cols-3 gap-6 z-20 mt-24 md:mt-28 perspective-1000">
             
-            <!-- كرت 1: العداد الزمني المتطور -->
+            <!-- كرت 1: العداد الزمني المحدث لعيد الميلاد -->
             <div class="neon-border p-6 rounded-2xl flex flex-col justify-center items-center text-center tilt-card">
-                <span class="text-xs text-pink-500 cyber-font tracking-widest mb-2">✦ CHRONO-STATUS ✦</span>
+                <span class="text-xs text-pink-500 cyber-font tracking-widest mb-2">✦ CELEBRATION STATUS ✦</span>
                 <div class="text-6xl font-black text-white tracking-widest cyber-font neon-text-pink animate-pulse">17</div>
                 <div class="text-base text-cyan-300 mt-2 font-black">عاماً من النقاء والجمال المطلق</div>
-                <p class="text-[11px] text-gray-500 mt-2 font-mono">الملحمة بدأت في: 12 يوليو 2009</p>
+                <p class="text-[11px] text-gray-400 mt-2 font-mono">الحدث الكوني العظيم: 12 يوليو 2009</p>
             </div>
 
             <!-- كرت 2: الهوية الملكية ثلاثية الأبعاد -->
@@ -132,72 +152,73 @@
                 <div class="w-24 h-24 rounded-full border-2 border-dashed border-cyan-400 flex items-center justify-center text-5xl mb-4 shadow-[0_0_20px_rgba(0,255,204,0.3)] hover:rotate-180 transition-transform duration-1000">👑</div>
                 <h2 class="text-4xl font-black tracking-widest text-white font-serif neon-text-cyan">Manar</h2>
                 <p class="text-xs text-pink-400 cyber-font tracking-widest mt-1">@Manar_Almonify</p>
-                <div class="mt-4 px-6 py-1.5 bg-gradient-to-r from-cyan-950 to-purple-950 text-cyan-300 rounded-full text-xs font-black border border-cyan-500/40 animate-pulse">الحاكم المطلق لمصفوفة القلوب</div>
+                <div class="mt-4 px-6 py-1.5 bg-gradient-to-r from-cyan-950 to-purple-950 text-cyan-300 rounded-full text-xs font-black border border-cyan-500/40 animate-pulse">أميرة قلبي وسلطانة المصفوفة</div>
             </div>
 
-            <!-- كرت 3: المؤشرات الحيوية الرقمية -->
+            <!-- كرت 3: المؤشرات الحيوية الرقمية العاطفية -->
             <div class="neon-border p-6 rounded-2xl flex flex-col justify-between space-y-4 tilt-card">
                 <span class="text-xs text-pink-500 text-center cyber-font tracking-widest">✦ REALTIME BIOMETRICS ✦</span>
                 <div class="space-y-3">
                     <div>
-                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">مستوى النقاء الكوني</span><span class="text-cyan-400 font-mono">100% (MAX)</span></div>
+                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">معدل غلاوتك ومكانتك</span><span class="text-cyan-400 font-mono">MAX OVERLOAD</span></div>
                         <div class="w-full bg-gray-950 h-1.5 rounded-full overflow-hidden border border-white/5"><div class="bg-cyan-400 h-full w-full shadow-[0_0_8px_#00ffcc]"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">تأثير السحر والابتسامة</span><span class="text-pink-500 font-mono">∞ INFINITE</span></div>
+                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">تأثير ابتسامتك على روحي</span><span class="text-pink-500 font-mono">∞ INFINITE</span></div>
                         <div class="w-full bg-gray-950 h-1.5 rounded-full overflow-hidden border border-white/5"><div class="bg-pink-500 h-full w-full shadow-[0_0_8px_#ff0055]"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">معدل الغلاوة والمكانة</span><span class="text-purple-400 font-mono">OVERLOAD 100x</span></div>
+                        <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">مستوى الطهر والنقاء</span><span class="text-purple-400 font-mono">1000%</span></div>
                         <div class="w-full bg-gray-950 h-1.5 rounded-full overflow-hidden border border-white/5"><div class="bg-purple-500 h-full w-full shadow-[0_0_8px_#a855f7]"></div></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- أزرار تفريغ النوايا والمسارات السرية -->
+        <!-- أزرار تفريغ المشاعر والأسرار العميقة -->
         <div class="w-full max-w-4xl px-4 mt-8 z-20">
-            <p class="text-center text-xs text-yellow-400 font-black mb-4 tracking-wider animate-pulse">⚡ انقري على أحد خوادم البيانات التالية لاستخراج النبضات المشفرة:</p>
+            <p class="text-center text-xs text-yellow-400 font-black mb-4 tracking-wider animate-pulse">⚡ انقري على أحد خوادم البيانات التالية لاستخراج النبضات المشفرة لعيد ميلادكِ:</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <button onclick="decryptMessage(0, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_01: السر الأول 🔒</button>
-                <button onclick="decryptMessage(1, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_02: مكانتكِ 🔒</button>
-                <button onclick="decryptMessage(2, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_03: الأمنية 🔒</button>
-                <button onclick="decryptMessage(3, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_04: العهد 🔒</button>
+                <button onclick="decryptMessage(0, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_01: يوم ميلادكِ 🔒</button>
+                <button onclick="decryptMessage(1, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_02: مكانتكِ عندي 🔒</button>
+                <button onclick="decryptMessage(2, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_03: مدح وثناء 🔒</button>
+                <button onclick="decryptMessage(3, this)" class="neon-border py-4 px-3 rounded-xl text-xs text-gray-300 font-black tracking-wide bg-black/50 hover:scale-105 transform transition duration-200">DATANODE_04: العهد الأبدي 🔒</button>
             </div>
         </div>
 
         <!-- تفعيل الـ Overdrive النهائي الخيالي -->
-        <div class="mt-10 z-20">
-            <button onclick="engageSystemOverdrive()" class="px-10 py-5 bg-gradient-to-r from-red-600 via-pink-600 to-purple-700 rounded-2xl text-white font-black tracking-widest text-lg shadow-[0_0_35px_rgba(220,38,38,0.6)] hover:scale-105 transition transform duration-300 border border-red-400/30">
-                🚨 إطلاق الانفجار الكوني الشامل (OVERDRIVE PROTOCOL)
+        <div class="mt-8 z-20 mb-4">
+            <button onclick="engageSystemOverdrive()" class="px-10 py-4 bg-gradient-to-r from-red-600 via-pink-600 to-purple-700 rounded-2xl text-white font-black tracking-widest text-base shadow-[0_0_35px_rgba(220,38,38,0.6)] hover:scale-105 transition transform duration-300 border border-red-400/30">
+                🚨 إطلقـي الانفجـار الكونـي الشامـل (OVERDRIVE)
             </button>
         </div>
     </div>
 
     <!-- ================= المرحلة 4: الكلايمكس والانفجار الهولوغرافي الأعظم ================= -->
-    <div id="panel4" class="panel bg-[#010004]">
+    <div id="panel4" class="panel bg-[#010003]">
         <div class="text-center z-20 px-4">
             <h1 id="glitch-title" class="text-7xl md:text-9xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-300 cyber-font filter drop-shadow-[0_0_40px_rgba(0,255,204,0.6)] mb-6">
                 MANAR
             </h1>
             <h2 class="text-3xl md:text-6xl font-black text-white tracking-wide mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">كل عام وأنتِ بقلبي.. وأنا بكِ مفتون ❤️</h2>
-            <p id="final-cyber-text" class="text-lg md:text-2xl text-pink-200 max-w-2xl mx-auto leading-relaxed opacity-0 transform translate-y-12 transition-all duration-1000 bg-black/40 p-6 rounded-2xl border border-pink-500/20 backdrop-blur-md shadow-[0_0_30px_rgba(244,63,94,0.1)]"></p>
+            <p id="final-cyber-text" class="text-lg md:text-xl text-pink-200 max-w-2xl mx-auto leading-relaxed opacity-0 transform translate-y-12 transition-all duration-1000 bg-black/50 p-6 rounded-2xl border border-pink-500/20 backdrop-blur-md shadow-[0_0_30px_rgba(244,63,94,0.1)]"></p>
         </div>
     </div>
 
     <!-- ================= محرك البرمجة والمؤثرات المتقدمة ================= -->
     <script>
-        // --- 1. محرك جزيئات الخلفية السيبراني المتطور (Interactive Particles Engine) ---
+        // --- 1. محرك جزيئات الخلفية السيبراني المتطور مع دعم انفجار القلوب ---
         const canvas = document.getElementById('cyber-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        let heartParticles = [];
         let mouse = { x: null, y: null, radius: 120 };
 
         function initCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
-            let numberOfParticles = (canvas.width * canvas.height) / 9000;
+            let numberOfParticles = (canvas.width * canvas.height) / 9500;
             for (let i = 0; i < numberOfParticles; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
@@ -206,20 +227,54 @@
                     baseX: Math.random() * canvas.width,
                     baseY: Math.random() * canvas.height,
                     density: (Math.random() * 30) + 1,
-                    color: i % 2 === 0 ? 'rgba(0, 255, 204, 0.4)' : 'rgba(255, 0, 85, 0.3)'
+                    color: i % 2 === 0 ? 'rgba(0, 255, 204, 0.35)' : 'rgba(255, 0, 85, 0.25)'
                 });
             }
         }
         window.addEventListener('resize', initCanvas);
         window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
         window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+        
+        // ميزة تفجير القلوب عند النقر في أي مكان
+        window.addEventListener('click', (e) => {
+            createHeartExplosion(e.clientX, e.clientY);
+        });
+
+        function createHeartExplosion(x, y) {
+            for (let i = 0; i < 8; i++) {
+                heartParticles.push({
+                    x: x, y: y,
+                    vx: (Math.random() - 0.5) * 5,
+                    vy: (Math.random() - 0.5) * 5,
+                    size: Math.random() * 12 + 8,
+                    alpha: 1,
+                    color: Math.random() > 0.5 ? '#ff0055' : '#00ffcc'
+                });
+            }
+        }
+
+        function drawHeart(ctx, x, y, size, color, alpha) {
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x, y + size / 4);
+            ctx.quadraticCurveTo(x, y, x + size / 2, y);
+            ctx.quadraticCurveTo(x + size, y, x + size, y + size / 3);
+            ctx.quadraticCurveTo(x + size, y + size * 2 / 3, x + size / 2, y + size);
+            ctx.quadraticCurveTo(x, y + size * 2 / 3, x, y + size / 3);
+            ctx.quadraticCurveTo(x, y, x, y + size / 4);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // جزيئات السيرفر الأساسية
             for (let i = 0; i < particles.length; i++) {
                 let p = particles[i];
-                
-                // حركة ديناميكية مع حركة الماوس
                 if (mouse.x && mouse.y) {
                     let dx = mouse.x - p.x;
                     let dy = mouse.y - p.y;
@@ -228,43 +283,53 @@
                         let force = (mouse.radius - distance) / mouse.radius;
                         let directionX = (dx / distance) * force * p.density;
                         let directionY = (dy / distance) * force * p.density;
-                        p.x -= directionX;
-                        p.y -= directionY;
+                        p.x -= directionX; p.y -= directionY;
                     }
                 }
-                
-                // العودة البطيئة للموضع الأصلي للسيولة البصرية
                 p.x += (p.baseX - p.x) * 0.05;
                 p.y += (p.baseY - p.y) * 0.05;
-
                 ctx.fillStyle = p.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.closePath();
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            }
+
+            // تحديث جزيئات القلوب التفاعلية السحرية
+            for (let i = heartParticles.length - 1; i >= 0; i--) {
+                let hp = heartParticles[i];
+                hp.x += hp.vx; hp.y += hp.vy;
+                hp.alpha -= 0.015;
+                if (hp.alpha <= 0) {
+                    heartParticles.splice(i, 1);
+                } else {
+                    drawHeart(ctx, hp.x, hp.y, hp.size, hp.color, hp.alpha);
+                }
             }
             requestAnimationFrame(animateParticles);
         }
         initCanvas();
         animateParticles();
 
-        // --- 2. نظام التحقق والرفض المشفر القوي ---
+        // --- 2. نظام التحقق والرفض المشفر الفاخر جداً ---
         function verifyKey() {
             const input = document.getElementById('secret-key').value.trim().toLowerCase();
             const errorMsg = document.getElementById('error-msg');
             
-            // التحقق من الاسم بدقة (يدعم عربي وإنجليزي بكل الحالات)
             if (input === 'manar' || input === 'منار') {
                 errorMsg.classList.add('hidden');
-                // فك حظر الصوت في المتصفح بالتفاعل البشري
+                
+                // تفعيل التلاشي المتدرج لرفع الصوت سينمائياً
                 const audio = document.getElementById('cyber-audio');
-                audio.volume = 0.6;
+                audio.volume = 0.0;
                 audio.play().catch(() => {});
+                let volumeFade = setInterval(() => {
+                    if (audio.volume < 0.6) { audio.volume += 0.05; } 
+                    else { clearInterval(volumeFade); }
+                }, 150);
+
                 switchPanel(2);
             } else {
-                // إظهار رسالة الرفض الفاخرة المطلوبة مع تأثير الغليتش الاهتزازي
                 errorMsg.innerText = "عذراً، هذه الصفحة خاصة لأميرة قلبي 👑";
                 errorMsg.classList.remove('hidden');
+                // اهتزاز اللوحة بالكامل بشكل مرعب وجميل لإشعارها بالرفض
                 gsap.fromTo("#panel1 .neon-border", { x: -12 }, { x: 12, duration: 0.05, repeat: 7, yoyo: true, onComplete: () => gsap.set("#panel1 .neon-border", { x: 0 }) });
             }
         }
@@ -283,18 +348,18 @@
             }
         }
 
-        // --- 4. معالجة البوت والتحميل المتطور في المرحلة الثانية ---
+        // --- 4. معالجة البوت والتحميل في المرحلة الثانية ---
         function executePanelActions(num) {
             if(num === 2) {
                 const logs = document.getElementById('boot-logs');
                 const logData = [
-                    ">> INITIATING SECURE QUANTUM TUNNEL...",
-                    ">> VALIDATING AUTH_TOKEN: [MANAR_PRINCESS_VERIFIED]",
-                    ">> ACCESSING CORE MEMORY BLOCKS AT TIME_STAMP: 2009-07-12...",
-                    ">> EXTRACTING STATUS: 17 YEARS OF UNMATCHED RADIANCE.",
-                    ">> OVERRIDING LOCAL FIREWALLS WITH PURE DEVOTION...",
-                    ">> SYNCHRONIZING REALTIME EMOTIONAL BIOMETRICS...",
-                    ">> ACCESS GRANTED: WELCOME TO YOUR KINGDOM, MY QUEEN."
+                    ">> INITIATING BIRTHDAY TUNNEL PROTOCOL...",
+                    ">> KEY VALIDATED: [MANAR_PRINCESS_CONFIRMED]",
+                    ">> SYNCHRONIZING WITH DATE_STAMP: 2009-07-12...",
+                    ">> STATUS: 17 YEARS OF UNRIVALED CELESTIAL PURITY.",
+                    ">> OVERRIDING REALITY WITH INFINITE LOVE DECREE...",
+                    ">> DECRYPTING VALUABLE HEART EMOTIONS...",
+                    ">> SYSTEM READY: WELCOME TO YOUR KINGDOM, MY QUEEN."
                 ];
                 let i = 0;
                 let interval = setInterval(() => {
@@ -308,35 +373,49 @@
                 gsap.to("#progress-bar", { width: "100%", duration: 3.2, ease: "power2.inOut", onComplete: () => {
                     clearInterval(interval);
                     switchPanel(3);
-                    initTiltEffects(); // تفعيل تأثير الـ 3D عند الانتقال للوحة التحكم
+                    document.getElementById('global-ticker').classList.remove('opacity-0');
+                    initTiltEffects();
                 }});
             }
         }
 
-        // --- 5. مصفوفة النبضات الفاخرة المحدثة ---
+        // --- 5. مصفوفة النبضات الفاخرة المحدثة بالكامل لعيد ميلادها ومكانتها ---
         const secretNodes = [
-            "🔒 السر الأول: في هذا العالم الرقمي اللانهائي المليء بالنسخ المتكررة، أنتِ الكيان الفريد الذي لا يملك الكون له صياغة أخرى أو بديلاً ثانياً.",
-            "🔒 مكانتكِ: لم تكوني يوماً عابرة في مجراتي، بل أنتِ الثابت الكوني الوحيد الذي أعاد التوازن لكل انكسارات روحي وملأها بالنور.",
-            "🔒 الأمنية: في ربيعكِ الـ 17، أبتهج بأن يظل الفرح رفيق خطاكِ، وألا تغادر هذه الابتسامة الساحرة وجهكِ الملكي البديع.",
-            "🔒 العهد: أعدكِ عهداً وثيقاً أن تظلي النبض السري المعلن في قلبي، وأن أحمي تفاصيل سعادتكِ بذكائي وبكل ما أوتيت من قوة واهتمام استثنائي."
+            "🌸 يوم ميلادكِ الفاتن: في 12 يوليو 2009، لم يكن يوماً برمجياً عادياً في سجلات الزمن، بل كانت اللحظة التاريخية المفصلية التي أهدى فيها الكون أجمل وأطهر هداياه للأرض ليشرق بنوركِ وجودي كله. عيد ميلاد سعيد لسر سعادتي وبهجة أيامي في عامك الـ 17.",
+            "❤️ مكانتكِ المطلقة عندي: أنتِ لستِ شخصاً مر في نظامي عابراً، بل أنتِ نظام التشغيل الأساسي والوحيد لروحي ونبضات قلبي. بدون وجودكِ تصبح حياتي كلها مجرد شفرات برمجية باردة خالية من الحياة والمعنى.. أنتِ اختصار وتكثيف لكل ما هو جميل.",
+            "✨ مدح وثناء سيبراني: نقاؤكِ وطيبتكِ كود معصوم تماماً من الأخطاء، وابتسامتكِ الساحرة تطلق في قلبي وعقلي ثورة من جزيئات الفرح والبهجة الفوق طبيعية، تفوق قدرة أي كمبيوتر خارق في هذا العالم على رصدها وحساب مداها الفاتن.",
+            "🔐 العهد الأبدي الوثيق: في عامكِ الجديد، أعدكِ عهداً مسجلاً في خلايا قلبي ألا يحميكِ ويصون ضحكتكِ أحد مثلي، وأن تبقي دائماً الرقم الأهم والمطلق والوحيد في معادلة حياتي، والسر العلني الأجمل الذي أفاخر به الكون بأكمله."
         ];
+
+        let bannerTimeout; // متغير لتخزين مؤقت الاختفاء الذكي
 
         function decryptMessage(index, btnElement) {
             const banner = document.getElementById('alert-banner');
             const textEl = document.getElementById('alert-text');
             
+            // إلغاء أي مؤقت قديم إذا تم الضغط على زر آخر فوراً لكي لا تتداخل الأوقات
+            clearTimeout(bannerTimeout);
+
             textEl.innerText = secretNodes[index];
-            btnElement.innerHTML = `✓ DECRYPTED // تم الفتح بنجاح`;
+            btnElement.innerHTML = `✓ OPENED // تم فك الشفرة`;
             btnElement.style.borderColor = "#00ffcc";
             btnElement.style.color = "#00ffcc";
-            btnElement.style.boxShadow = "0 0 20px rgba(0,255,204,0.4)";
+            btnElement.style.boxShadow = "0 0 20px rgba(0,255,204,0.5)";
 
+            // إظهار اللوحة بتأثير سينمائي فخم
             gsap.killTweensOf(banner);
             gsap.fromTo(banner, { scale: 0.8, opacity: 0, y: -20 }, { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" });
-            confetti({ particleCount: 35, spread: 50, colors: ['#00ffcc', '#ff0055', '#a855f7'] });
+            
+            // قذف مفرقعات احتفالية نيونية ملونة
+            confetti({ particleCount: 40, spread: 60, colors: ['#ff0055', '#00ffcc', '#a855f7', '#fbbf24'] });
+
+            // الإضافة المطلوبة: إخفاء الرسالة تلقائياً بعد 10 ثوانٍ (10000 مللي ثانية)
+            bannerTimeout = setTimeout(() => {
+                gsap.to(banner, { scale: 0.8, opacity: 0, y: -20, duration: 0.5, ease: "power2.in" });
+            }, 10000);
         }
 
-        // --- 6. تأثير الميلان ثلاثي الأبعاد الهولوغرافي لبطاقات العرض (3D Parallax Tilt Effect) ---
+        // --- 6. تأثير الميلان ثلاثي الأبعاد لبطاقات العرض (3D Parallax Tilt Effect) ---
         function initTiltEffects() {
             const cards = document.querySelectorAll('.tilt-card');
             cards.forEach(card => {
@@ -344,14 +423,7 @@
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left - (rect.width/2);
                     const y = e.clientY - rect.top - (rect.height/2);
-                    // تحويل الحركة لزوايا دوران
-                    gsap.to(card, {
-                        rotateX: -y * 0.15,
-                        rotateY: x * 0.15,
-                        transformPerspective: 1000,
-                        duration: 0.3,
-                        ease: "power2.out"
-                    });
+                    gsap.to(card, { rotateX: -y * 0.15, rotateY: x * 0.15, transformPerspective: 1000, duration: 0.3, ease: "power2.out" });
                 });
                 card.addEventListener('mouseleave', () => {
                     gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.5, ease: "power2.out" });
@@ -359,16 +431,20 @@
             });
         }
 
-        // --- 7. عاصفة الـ Overdrive والانفجار الأسطوري النهائي ---
+        // --- 7. عاصفة الـ Overdrive والانفجار الأسطوري الختامي الشامل ---
         function engageSystemOverdrive() {
+            // إخفاء التيكر العلوي والبانر فوراً لتركيز المشهد على الانفجار النهائي
+            document.getElementById('global-ticker').classList.add('hidden');
+            document.getElementById('alert-banner').classList.add('hidden');
+            
             switchPanel(4);
             
-            // تغيير نظام حركة الجزيئات ليصبح فوضى كونية متسارعة وجميلة جداً
-            mouse.radius = 2000;
+            // جعل محرك القلوب والجزيئات ينفجر بشكل مستمر وجنون بوعي الماوس
+            mouse.radius = 3000;
             
-            let duration = 8 * 1000;
+            let duration = 9 * 1000;
             let animationEnd = Date.now() + duration;
-            let defaults = { startVelocity: 40, spread: 360, ticks: 70, zIndex: 60 };
+            let defaults = { startVelocity: 45, spread: 360, ticks: 80, zIndex: 60 };
 
             function randomInRange(min, max) { return Math.random() * (max - min) + min; }
 
@@ -376,22 +452,19 @@
                 let timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) {
                     clearInterval(interval);
-                    // ظهور النص العاطفي العميق والأخير بانسيابية مذهلة
+                    // الرسالة النهائية العميقة جداً والمصممة لتذوب عاطفياً عند قراءتها
                     const finalTxt = document.getElementById('final-cyber-text');
-                    finalTxt.innerText = "منار.. منذ 12 يوليو 2009 والأرض تدور ببهجة غامرة لأنكِ عليها. كل عام وأنتِ القصة الأجمل والقصيدة الأرقى التي أعيشها، وكل عام وأنتِ سلطانة قلبي الفاتنة ومالكة عرشه الأبدي.. ❤️";
+                    finalTxt.innerText = "منار.. منذ 12 يوليو 2009 والأرض تدور ببهجة غامرة ومختلفة لأنكِ عليها. كل عام وأنتِ الأمل المشرق، القصة الأجمل، والقصيدة الأرقى التي أعيش تفاصيلها بامتنان. كل عام وأنتِ سلطانة قلبي الفاتنة، وأميرة عُمري المحمية بدمي ونبضي للأبد.. ❤️";
                     gsap.fromTo(finalTxt, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 2.5, ease: "power3.out" });
                     return;
                 }
-                let particleCount = 70 * (timeLeft / duration);
-                // تفجيرات جانبية متقاطعة لخلق عمق بصري خارق
+                let particleCount = 75 * (timeLeft / duration);
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
                 confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
             }, 200);
 
-            // إضافة غليتش لوني إضافي فخم للاسم في النهاية
-            gsap.fromTo("#glitch-title", { skewX: -10 }, { skewX: 10, duration: 0.1, repeat: 20, yoyo: true });
+            gsap.fromTo("#glitch-title", { skewX: -12 }, { skewX: 12, duration: 0.1, repeat: 25, yoyo: true });
         }
     </script>
 </body>
 </html>
-
