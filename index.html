@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANAR MATRIX // فك التشفير الكوني 🔐</title>
+    <!-- الروابط الأساسية للمكتبات -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cairo:wght@400;700;900&display=swap');
+        
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #020208; color: #00ffcc;
+            font-family: 'Cairo', sans-serif; overflow: hidden;
+            user-select: none; -webkit-user-select: none;
+        }
+        .cyber-font { font-family: 'Share Tech Mono', monospace; }
+        
+        .panel {
+            position: absolute; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; opacity: 0; pointer-events: none;
+            z-index: 10;
+        }
+        .panel.active { opacity: 1; pointer-events: auto; }
+
+        /* توهج النيون السيبراني الفاخر */
+        .neon-border {
+            border: 1px solid #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3), inset 0 0 15px rgba(255, 0, 85, 0.2);
+            background: rgba(5, 2, 15, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        .neon-text-pink { text-shadow: 0 0 8px #ff0055, 0 0 20px #ff0055; }
+        .neon-text-cyan { text-shadow: 0 0 8px #00ffcc, 0 0 20px #00ffcc; }
+
+        /* خطوط المسح الهولوغرافية */
+        body::before {
+            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 999; background-size: 100% 4px, 6px 100%; pointer-events: none;
+        }
+
+        /* شبكة الكانفاس الخلفية */
+        #cyber-grid {
+            position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; pointer-events: none; opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الأغنية الخلفية التفاعلية -->
+    <audio id="cyber-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+
+    <canvas id="cyber-grid"></canvas>
+
+    <!-- ================= المرحلة 1: شاشة الاختراق وفك التشفير ================= -->
+    <div id="panel1" class="panel active">
+        <div class="neon-border p-8 rounded-2xl max-w-md w-11/12 text-center z-20">
+            <div class="cyber-font text-xs text-rose-500 tracking-widest mb-2 animate-pulse">⚡ SYSTEM LOCK: RESTRICTED ACCESS</div>
+            <h1 class="text-xl font-bold text-gray-300 mb-6">نظام التشفير الكوني يطلب مفتاح الأمان للوصول..</h1>
+            
+            <div class="mb-6">
+                <input type="password" id="secret-key" placeholder="أدخلي يوم وشهر ميلادكِ (مثلاً: 1207)" class="w-full bg-black/50 border border-cyan-500/50 rounded-lg py-3 px-4 text-center text-cyan-400 font-mono tracking-widest focus:outline-none focus:border-pink-500 transition duration-300">
+                <p class="text-xs text-gray-500 mt-2">تلميح: تاريخ ميلادكِ المميز كود لفتح الكون 🌸</p>
+            </div>
+
+            <button onclick="verifyKey()" class="w-full py-3 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg font-black text-white tracking-wider hover:from-pink-500 hover:to-purple-500 shadow-[0_0_15px_rgba(236,72,153,0.4)] transition transform duration-200 active:scale-95">
+                🔓 اطلقي مصفوفة البيانات
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= المرحلة 2: تحميل الـ Matrix والنظام ================= -->
+    <div id="panel2" class="panel">
+        <div class="text-center z-20 font-mono">
+            <div class="text-pink-500 text-sm mb-4 cyber-font">INITIALIZING MANAR_MATRIX_PROTOCAL...</div>
+            <div id="boot-logs" class="text-left text-xs text-cyan-400 space-y-1 mb-6 max-w-xs h-32 overflow-hidden px-4"></div>
+            <div class="w-64 bg-gray-900 h-1.5 rounded-full overflow-hidden mx-auto border border-cyan-500/30">
+                <div id="progress-bar" class="bg-gradient-to-r from-cyan-400 to-pink-500 h-full w-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= المرحلة 3: لوحة التحكم الخرافية (The Dashboard) ================= -->
+    <div id="panel3" class="panel">
+        <!-- شاشة الرسائل العلوية المنبثقة الضخمة جداً -->
+        <div id="alert-banner" class="absolute top-6 left-4 right-4 mx-auto max-w-xl neon-border p-5 text-center transform scale-0 opacity-0 transition-all duration-500 z-50 rounded-xl">
+            <span class="absolute top-1 right-2 text-[10px] cyber-font text-pink-500">DECRYPTED_MSG //</span>
+            <p id="alert-text" class="text-lg md:text-xl font-bold text-white leading-relaxed tracking-wide"></p>
+        </div>
+
+        <div class="w-full max-w-4xl px-4 grid grid-cols-1 md:grid-cols-3 gap-4 z-20 mt-16 md:mt-24">
+            
+            <!-- الكرت الأول: عداد العمر الفاخر -->
+            <div class="neon-border p-6 rounded-xl flex flex-col justify-center items-center text-center">
+                <span class="text-xs text-pink-500 cyber-font mb-2">✦ TEMPORAL STATUS ✦</span>
+                <div class="text-5xl font-black text-white tracking-widest cyber-font neon-text-pink">17</div>
+                <div class="text-sm text-cyan-300 mt-2 font-bold">عاماً من النقاء والجمال المطلق</div>
+                <p class="text-[11px] text-gray-500 mt-1">منذ: 12 يوليو 2009</p>
+            </div>
+
+            <!-- الكرت الأوسط الأكبر: الهوية الكونية لمنار -->
+            <div class="neon-border p-6 rounded-xl flex flex-col justify-center items-center text-center md:col-span-1 border-cyan-400/50">
+                <div class="w-20 h-20 rounded-full border-2 border-cyan-400 flex items-center justify-center text-4xl animate-spin animate-duration-3000 mb-3">👑</div>
+                <h2 class="text-3xl font-black tracking-wide text-white font-serif neon-text-cyan">Manar</h2>
+                <p class="text-xs text-pink-400 cyber-font tracking-widest mt-1">@Manar_Almonify</p>
+                <div class="mt-4 px-4 py-1 bg-cyan-950 text-cyan-300 rounded-full text-[11px] font-bold border border-cyan-500/30 animate-pulse">الملكة الحالية للكون</div>
+            </div>
+
+            <!-- الكرت الثالث: المقاييس الحيوية العاطفية -->
+            <div class="neon-border p-6 rounded-xl flex flex-col justify-between text-sm space-y-3">
+                <span class="text-xs text-pink-500 text-center cyber-font">✦ BIOMETRIC METRICS ✦</span>
+                <div>
+                    <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">مستوى الطهر والنقاء</span><span class="text-cyan-400">100%</span></div>
+                    <div class="w-full bg-gray-950 h-1 rounded-full"><div class="bg-cyan-400 h-full w-full"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">تأثير ابتسامتها على روحي</span><span class="text-pink-500">∞ لانهاية</span></div>
+                    <div class="w-full bg-gray-950 h-1 rounded-full"><div class="bg-pink-500 h-full w-full"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[11px] mb-1"><span class="text-gray-400">معدل غلاوتها في قلبي</span><span class="text-purple-400">MAX OVERLOAD</span></div>
+                    <div class="w-full bg-gray-950 h-1 rounded-full"><div class="bg-purple-500 h-full w-full"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- أزرار فك التشفير الحية النابضة -->
+        <div class="w-full max-w-4xl px-4 mt-6 z-20">
+            <p class="text-center text-xs text-yellow-400 font-bold mb-3 animate-bounce">⚡ انقري على عقد البيانات التالية لتفريغ الرسائل السرية أمام عينيكِ:</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <button onclick="decryptMessage(0, this)" class="neon-border py-3 px-2 rounded-lg text-xs text-gray-300 font-bold hover:text-white transition bg-black/40">NODE_01: السر الأول 🔒</button>
+                <button onclick="decryptMessage(1, this)" class="neon-border py-3 px-2 rounded-lg text-xs text-gray-300 font-bold hover:text-white transition bg-black/40">NODE_02: مكانتكِ 🔒</button>
+                <button onclick="decryptMessage(2, this)" class="neon-border py-3 px-2 rounded-lg text-xs text-gray-300 font-bold hover:text-white transition bg-black/40">NODE_03: الأمنية 🔒</button>
+                <button onclick="decryptMessage(3, this)" class="neon-border py-3 px-2 rounded-lg text-xs text-gray-300 font-bold hover:text-white transition bg-black/40">NODE_04: العهد 🔒</button>
+            </div>
+        </div>
+
+        <!-- زر التدمير الشامل والنهاية الخرافية -->
+        <div class="mt-8 z-20">
+            <button onclick="engageSystemOverdrive()" class="px-8 py-4 bg-gradient-to-r from-red-600 via-pink-600 to-rose-700 rounded-xl text-white font-black tracking-widest text-base shadow-[0_0_25px_rgba(220,38,38,0.5)] hover:scale-105 transition transform duration-200">
+                🚨 تفعيل النمط الختامي الخيالي (OVERDRIVE)
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= المرحلة 4: الانفجار الهولوغرافي الأعظم ================= -->
+    <div id="panel4" class="panel bg-[#010003]">
+        <div class="text-center z-20 px-4">
+            <h1 class="text-6xl md:text-8xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-300 cyber-font filter drop-shadow-[0_0_30px_rgba(0,255,204,0.4)] mb-4 animate-pulse">
+                MANAR
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide mb-6">كل عام وأنتِ بقلبي.. وأنا بكِ مفتون ❤️</h2>
+            <p id="final-cyber-text" class="text-lg md:text-xl text-pink-300 max-w-xl mx-auto leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000"></p>
+        </div>
+    </div>
+
+    <!-- ================= أنظمة التحكم البرمجية والتحريك ================= -->
+    <script>
+        // إعداد شبكة الكانفاس الهولوغرافية المتحركة خلف الكود
+        const canvas = document.getElementById('cyber-grid');
+        const ctx = canvas.getContext('2d');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+
+        function drawGrid() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.strokeStyle = "rgba(0, 255, 204, 0.08)";
+            ctx.lineWidth = 1;
+            let size = 40;
+            for(let x=0; x<canvas.width; x+=size) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke(); }
+            for(let y=0; y<canvas.height; y+=size) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke(); }
+        }
+        setInterval(drawGrid, 1000); drawGrid();
+
+        // آلية الانتقال بين اللوحات الذكية
+        function switchPanel(num) {
+            const activePanel = document.querySelector('.panel.active');
+            const targetPanel = document.getElementById(`panel${num}`);
+            if(activePanel) {
+                gsap.to(activePanel, {opacity: 0, duration: 0.5, onComplete: () => {
+                    activePanel.classList.remove('active');
+                    targetPanel.classList.add('active');
+                    gsap.to(targetPanel, {opacity: 1, duration: 0.6});
+                    executePanelActions(num);
+                }});
+            }
+        }
+
+        // التحقق من كود الدخول التفاعلي
+        function verifyKey() {
+            const input = document.getElementById('secret-key').value.trim();
+            // تشغيل الصوت تلقائياً بمجرد تفاعلها
+            document.getElementById('cyber-audio').play().catch(() => {});
+            
+            // سواء أدخلت الكود صح أو ضغطت مباشرة، سنمررها حتى لا تتعطل المفاجأة، مع إشعارها بذكاء
+            switchPanel(2);
+        }
+
+        // محاكاة الإقلاع والتحميل البرمجي الفاخر
+        function executePanelActions(num) {
+            if(num === 2) {
+                const logs = document.getElementById('boot-logs');
+                const logData = [
+                    "> CONNECTING TO MANAR_RELATION_SERVER...",
+                    "> FETCHING DATA FOR DATE: 2009-07-12...",
+                    "> TARGET IDENTIFIED: MANAR ALMONIFY",
+                    "> STATUS: 17 YEARS OF PERFECT RADIANCE",
+                    "> BYPASSING SECURITY WITH PURE LOVE...",
+                    "> DECRYPTING CORE MEMORY NODES...",
+                    "> ACCESS GRANTED: WELCOME, MY QUEEN."
+                ];
+                let i = 0;
+                let interval = setInterval(() => {
+                    if(i < logData.length) {
+                        logs.innerHTML += logData[i] + "<br>";
+                        logs.scrollTop = logs.scrollHeight;
+                        i++;
+                    }
+                }, 300);
+
+                gsap.to("#progress-bar", {width: "100%", duration: 3, ease: "power1.inOut", onComplete: () => {
+                    clearInterval(interval);
+                    switchPanel(3);
+                }});
+            }
+        }
+
+        // مصفوفة الرسائل القوية المشفرة لكل عقدة بيانات
+        const secretNodes = [
+            "🔒 السر الأول: في هذا العالم المليء بالتكرار والزحام، أنتِ النسخة الوحيدة الفريدة التي لا يملك الكون لها بديلاً أو شبيهاً.",
+            "🔒 مكانتكِ: لم تكوني يوماً شخصاً عادياً مر في أيامي، بل أنتِ المعادلة الجمالية الثابتة التي أصلحت كل انكسارات روحي بوجودها.",
+            "🔒 الأمنية: في عامكِ الـ 17، أتمنى من الله ألا تفارق هذه الابتسامة الساحرة وجهكِ، وأن تظلي دائماً في أعلى مراتب الفرح والنور.",
+            "🔒 العهد: أعدكِ أن تظلي سراً علنياً في قلبي، وأن أحمي ضحكتكِ وسعادتكِ بذكائي وبكل ما أملك من قوة واهتمام استثنائي."
+        ];
+
+        function decryptMessage(index, btnElement) {
+            const banner = document.getElementById('alert-banner');
+            const textEl = document.getElementById('alert-text');
+            
+            textEl.innerText = secretNodes[index];
+            btnElement.innerHTML = `✓ DECRYPTED // تم الفتح`;
+            btnElement.style.borderColor = "#00ffcc";
+            btnElement.style.color = "#00ffcc";
+
+            gsap.killTweensOf(banner);
+            gsap.fromTo(banner, {scale: 0.8, opacity: 0}, {scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.4)"});
+            confetti({ particleCount: 25, spread: 40, colors: ['#00ffcc', '#ff0055'] });
+        }
+
+        // التفعيل الختامي الخرافي والانفجار الأسطوري للألعاب النارية
+        function engageSystemOverdrive() {
+            switchPanel(4);
+            
+            // إطلاق عاصفة لا تتوقف من الألعاب النارية والاحتفالات الهولوغرافية
+            let duration = 6 * 1000;
+            let animationEnd = Date.now() + duration;
+            let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 50 };
+
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+            let interval = setInterval(function() {
+                let timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    // إظهار الرسالة العاطفية القوية الأخيرة بهدوء وانسيابية فخمة
+                    const finalTxt = document.getElementById('final-cyber-text');
+                    finalTxt.innerText = "منار.. منذ 2009/07/12 والأرض تدور ببهجة لأنكِ عليها. كل عام وأنتِ القصة الأجمل التي أعيشها، وكل عام وأنتِ مالكة قلبي وسلطانته الفاتنة.. ❤️";
+                    gsap.to(finalTxt, {opacity: 1, y: 0, duration: 2});
+                    return;
+                }
+                let particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+    </script>
+</body>
+</html>
